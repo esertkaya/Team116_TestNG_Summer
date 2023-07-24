@@ -4,9 +4,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AutomationExcercisePage;
 import utilities.Driver;
-import utilities.TestBaseRapor;
 
-public class TC02 {
+public class TC04 {
     @Test
     public void test01(){
         //1. Launch browser
@@ -26,9 +25,9 @@ public class TC02 {
         automationExcercisePage.loginButtonClick.click();
         //8. Verify that 'Logged in as username' is visible
         Assert.assertTrue(automationExcercisePage.loggedInAsUserNameTest.isDisplayed());
-        //9. Click 'Delete Account' button
-        automationExcercisePage.clickDeleteAccount.click();
-        //10. Verify that 'ACCOUNT DELETED!' is visible
-        Assert.assertTrue(automationExcercisePage.accountDeletedTest.isDisplayed());
+        //9. Click 'Logout' button
+        automationExcercisePage.logOutButton.click();
+        //10. Verify that user is navigated to login page
+        Assert.assertTrue(automationExcercisePage.loginPageVisible.isDisplayed());
     }
 }

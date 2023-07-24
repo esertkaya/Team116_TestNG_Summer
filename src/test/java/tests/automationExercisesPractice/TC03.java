@@ -1,12 +1,12 @@
 package tests.automationExercisesPractice;
 
+import com.github.javafaker.Faker;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.AutomationExcercisePage;
 import utilities.Driver;
-import utilities.TestBaseRapor;
 
-public class TC02 {
+public class TC03 {
     @Test
     public void test01(){
         //1. Launch browser
@@ -18,17 +18,15 @@ public class TC02 {
         //4. Click on 'Signup / Login' button
         automationExcercisePage.signUpLoginAtTheTop.click();
         //5. Verify 'Login to your account' is visible
-        Assert.assertTrue(automationExcercisePage.loginToYourAccountVisible.isDisplayed());
-        //6. Enter correct email address and password
-        automationExcercisePage.loginEmail.sendKeys("ea@hotmail.com");
-        automationExcercisePage.loginPassword.sendKeys("123456");
+       Assert.assertTrue(automationExcercisePage.loginToYourAccountVisible.isDisplayed());
+        //6. Enter incorrect email address and password
+        Faker faker=new Faker();
+        automationExcercisePage.loginEmail.sendKeys(faker.internet().emailAddress());
+        automationExcercisePage.loginPassword.sendKeys(faker.internet().password());
         //7. Click 'login' button
         automationExcercisePage.loginButtonClick.click();
-        //8. Verify that 'Logged in as username' is visible
-        Assert.assertTrue(automationExcercisePage.loggedInAsUserNameTest.isDisplayed());
-        //9. Click 'Delete Account' button
-        automationExcercisePage.clickDeleteAccount.click();
-        //10. Verify that 'ACCOUNT DELETED!' is visible
-        Assert.assertTrue(automationExcercisePage.accountDeletedTest.isDisplayed());
+        //8. Verify error 'Your email or password is incorrect!' is visible
+        Assert.assertTrue(automationExcercisePage.emailOrPasswordIncorrect.isDisplayed());
+
     }
 }

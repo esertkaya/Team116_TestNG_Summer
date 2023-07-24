@@ -5,7 +5,7 @@
     <test name="toplu package calistirma">
         
         <packages>
-            <package name="tests.day12_testNG"></package>
+            <package name="tests.automationExercisesPractice"></package>
             <package name="tests.day14_testNgFramework_xmlFiles"></package>
         </packages>
     </test>
